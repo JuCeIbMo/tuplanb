@@ -10,6 +10,9 @@ USER root
 RUN mkdir -p /usr/src/app/.wwebjs_auth /usr/src/app/.wwebjs_cache \
   && chown -R pptruser:pptruser /usr/src/app
 
+# Asegura que el directorio /sessions exista y tiene los permisos correctos
+RUN mkdir -p /sessions && chown -R pptruser:pptruser /sessions
+
 # Cambia al usuario recomendado por la imagen base
 USER pptruser
 

@@ -4,7 +4,9 @@ const qrcode = require("qrcode-terminal");
 
 
 const client = new Client({
-  authStrategy: new LocalAuth(),
+  authStrategy: new LocalAuth({
+    dataPath: '/sessions', // Directory for storing sessions
+  }),
   puppeteer: {
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
   },
