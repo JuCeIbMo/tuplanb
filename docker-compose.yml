@@ -1,0 +1,13 @@
+
+services:
+  api:
+    build: .
+    container_name: tuplana_api
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    volumes:
+    - ./.wwebjs_auth:/usr/src/app/.wwebjs_auth
+    - ./.wwebjs_cache:/usr/src/app/.wwebjs_cache
