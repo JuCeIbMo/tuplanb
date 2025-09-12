@@ -49,8 +49,8 @@ app.post("/send-media", validateToken, async (req, res) => {
       return res.status(400).json({ error: "Faltan parámetros: number o imageUrl" });
     }
     
-    const media = await MessageMedia.fromUrl(mediaUrl);
-
+    const media = await MessageMedia.fromUrl(mediaUrl, { unsafeMime: true });
+    
     await client.sendMessage(channel, media, { caption });
 
     res.json({ status: "ok", message: "Media enviada con éxito" });
